@@ -1,7 +1,7 @@
 from flask import render_template
 from flask import redirect
 from flask import url_for
-from flask_app3 import app
+from new_app import app
 from author.form import RegisterForm
 
 @app.route('/login')

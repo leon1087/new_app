@@ -1,4 +1,4 @@
-from flask_app3 import db
+from new_app import db
 
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)

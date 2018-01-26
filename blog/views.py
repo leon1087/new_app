@@ -1,4 +1,4 @@
-from flask_app3 import app
+from new_app import app
 
 @app.route('/')
 @app.route('/index')
