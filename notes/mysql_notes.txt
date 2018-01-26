@@ -1,0 +1,32 @@
+db operation:
+
+0.preperation:
+    a.python manage.py shell
+    b. from flask_app3 import db
+    c. from author.models import Author
+
+
+1. create new table:
+db.create_all()
+
+2. assign values:
+author = Author(
+"Leon Wang", "wangjq11@gmail.com", "hehemama00", "wangjq10", True
+)
+
+3. write into database:
+    a. db.session.add(author)
+    b. db.session.commit()
+    
+4. get all records in the database:
+authors = Author.query.all()
+
+5. get fullname(example) of the authors from step 4:
+fullname = authors[0].fullname
+
+6. query with filter:
+authors2 = Author.query.filter_by(username="CindyC").first()
+
+7. drop all table records and delete table:
+db.drop_all()
+
