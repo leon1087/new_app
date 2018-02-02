@@ -4,6 +4,7 @@ from author.models import Author
 from blog.models import Blog
 from blog.form import SetupForm
 from new_app import db
+from author.decorators import login_required
 
 @app.route('/')
 @app.route('/index')
@@ -11,6 +12,7 @@ def index():
     return "Hello World!"
     
 @app.route('/admin')
+@login_required
 def admin():
     blogs = Blog.query.count()
     if blogs == 0:
