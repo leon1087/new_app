@@ -30,6 +30,8 @@ def login():
                 return redirect(next)
             else:
                 return redirect(url_for('login_success'))
+        else:
+            error = "Incorrect usrename and password"
     return render_template('author/login.html', form=form, error=error)
     
 @app.route("/register", methods=("GET", "POST"))
