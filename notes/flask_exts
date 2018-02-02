@@ -1,0 +1,31 @@
+1. operate database:
+
+python mange.py shell
+
+from new_app import db
+
+
+1a. Create all tables and columns in the models:
+db.create_all()
+
+1b. query:
+db.query()
+
+1c. Drop all tables:
+db.drop_all()
+
+
+
+2. use migrate:
+
+Import in the __init__.py file: "from flask.ext.migrate import Migrate"
+connect to app and database: migrate = Migrate(app, db)
+
+Add "from flask.ext.migrate import MigrateCommand" in manage.py
+Add manger connection to the migrate: "manager.add_command('db', MigrateCommand)"
+
+init db with the migrate: python manage.py db init
+
+start migrate: python manage.py db migrate
+downgrage db to previous version: python manage.py db downgrade
+commit current version: python manage.py db upgrade
