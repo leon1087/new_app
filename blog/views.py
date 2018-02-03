@@ -1,5 +1,6 @@
 from new_app import app
 from flask import render_template, url_for, redirect, flash
+import bcrypt
 from author.models import Author
 from blog.models import Blog
 from blog.form import SetupForm
@@ -24,11 +25,13 @@ def setup():
     form = SetupForm()
     error = ""
     if form.validate_on_submit():
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(form.password.data, salt)
         author = Author(
             form.fullname.data,
             form.email.data,
             form.username.data,
-            form.password.data,
+            hashed_password,
             True
             )
         db.session.add(author)

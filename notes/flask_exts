@@ -29,3 +29,6 @@ init db with the migrate: python manage.py db init
 start migrate: python manage.py db migrate
 downgrage db to previous version: python manage.py db downgrade
 commit current version: python manage.py db upgrade
+
+With the migrate, to change the type or length of the column, should add "compare_type=True"
+in the "migrations/env.py" under the node: context.configure
